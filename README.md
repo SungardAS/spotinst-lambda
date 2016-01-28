@@ -16,6 +16,5 @@ Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https
 
 ## Compatible with CloudFormation
 
-If called by CloudFormation
-[cfn-response](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-cfnresponsemodule)
+When called by CloudFormation [cfn-response](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-cfnresponsemodule)
 will be used to return the correct status and PhysicalId will be returned to the stack.
