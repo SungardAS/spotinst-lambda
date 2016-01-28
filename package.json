@@ -1,0 +1,25 @@
+{
+  "name": "spotinst-lambda",
+  "version": "0.1.0",
+  "description": "AWS Lambda scripts to interface with Spotinst",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive --timeout 7000"
+  },
+  "author": {
+    "name": "Kevin McGrath",
+    "email": "kevin.mcgrath@sungardas.com"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4",
+    "nock": "^6.0.1"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "cfn-response": "^1.0.1",
+    "request": "^2.67.0"
+  }
+}
