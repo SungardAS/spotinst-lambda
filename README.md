@@ -3,8 +3,6 @@
 AWS Lambda functions to Create, Update and Cancel [Spotinst](http://spotinst.com) resources
 
 
-[![NPM](https://nodei.co/npm/spotinst-lambda.png)](https://nodei.co/npm/spotinst-lambda/)
-
 [![Build
 Status](https://travis-ci.org/SungardAS/spotinst-lambda.svg?branch=master)](https://travis-ci.org/SungardAS/spotinst-lambda?branch=master)
 [![Code
@@ -14,7 +12,45 @@ Status](https://coveralls.io/repos/SungardAS/spotinst-lambda/badge.svg?branch=ma
 [![Dependency
 Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https://david-dm.org/SungardAS/spotinst-lambda?branch=master)
 
-## Compatible with CloudFormation
+## AWS Lambda
+
+### parameters
+
+#### Long Term Credentials
+
+`username` - Spotinst Username
+
+`password` - Spotinst Password
+
+`clientId` - Client ID for Spotinst Account
+
+`clientSecret` - Client Secret for Spotinst Account
+
+#### Temp Credentials
+
+`accessCode` - Short term access code retrieved using Spotinst token
+service
+
+
+#### handler
+index/handler
+
+**Params**
+
+In addition to one of the credential parameter groups:
+
+- resourceType *required* `string` - `elasticgroup` is the only valid
+  option at this time
+
+- requestType *required* `string` - create|update|delete
+
+- groupConfig `object` - required for create|update, not used for delete
+
+
+
+## CloudFormation
 
 When called by CloudFormation [cfn-response](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-cfnresponsemodule)
-will be used to return the correct status and PhysicalId will be returned to the stack.
+will be used to return the correct physicalResourceId to the stack.
+
+ResourceType must be set to `elasticgroup`
