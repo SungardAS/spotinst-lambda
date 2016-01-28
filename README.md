@@ -46,6 +46,8 @@ In addition to one of the credential parameter groups:
 
 - groupConfig `object` - required for create|update, not used for delete
 
+- groupId `string` - required for update|delete
+
 
 
 ## CloudFormation
@@ -107,3 +109,11 @@ ResourceType must be set to `elasticgroup`
       }
     }
 
+### Lambda - delete elasticgroup
+
+    {
+      "accessToken": TOKEN
+      "requestType": "delete",
+      "resourceType": "elasticgroup",
+      "groupId": ELASTICGROUP_ID
+    }
