@@ -54,3 +54,56 @@ When called by CloudFormation [cfn-response](http://docs.aws.amazon.com/AWSCloud
 will be used to return the correct physicalResourceId to the stack.
 
 ResourceType must be set to `elasticgroup`
+
+
+## Examples
+
+### Lambda - create elasticgroup
+
+    {
+      "accessToken": TOKEN
+      "requestType": "create",
+      "resourceType": "elasticgroup",
+      "groupConfig": {
+        "group": {
+          "name": "test",
+          "strategy": {
+            "risk": 100,
+            "onDemandCount": null,
+            "availabilityVsCost": "balanced"
+          },
+          "capacity": {
+            "target": 1,
+            "minimum": 1,
+            "maximum": 1
+          },
+          "scaling": {},
+          "compute": {
+            "instanceTypes": {
+              "ondemand": "m3.medium",
+              "spot": [
+                "m3.medium"
+                                                                                                                                      ]
+            },
+            "availabilityZones": [
+              {
+                "name": "us-east-1a",
+                "subnetId": SUBNET_ID
+              }
+            ],
+            "launchSpecification": {
+              "monitoring": false,
+              "imageId": "ami-60b6c60a",
+              "keyPair": "kevinkey",
+              "securityGroupIds": [
+                SECURITY_GROUP_ID
+              ]
+            },
+            "product": "Linux/UNIX"
+          },
+          "scheduling": {},
+          "thirdPartiesIntegration": {}
+        }
+      }
+    }
+
