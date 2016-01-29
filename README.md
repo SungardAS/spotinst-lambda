@@ -44,7 +44,7 @@ In addition to one of the credential parameter groups:
 
 - requestType *required* `string` - create|update|delete
 
-- groupConfig `object` - required for create|update, not used for delete
+- group `object` - Spotinst group definition. Required for create|update, not used for delete
 
 - groupId `string` - required for update|delete
 
@@ -66,46 +66,44 @@ ResourceType must be set to `elasticgroup`
       "accessToken": TOKEN
       "requestType": "create",
       "resourceType": "elasticgroup",
-      "groupConfig": {
-        "group": {
-          "name": "test",
-          "strategy": {
-            "risk": 100,
-            "onDemandCount": null,
-            "availabilityVsCost": "balanced"
+      "group": {
+        "name": "test",
+        "strategy": {
+          "risk": 100,
+          "onDemandCount": null,
+          "availabilityVsCost": "balanced"
+        },
+        "capacity": {
+          "target": 1,
+          "minimum": 1,
+          "maximum": 1
+        },
+        "scaling": {},
+        "compute": {
+          "instanceTypes": {
+            "ondemand": "m3.medium",
+            "spot": [
+              "m3.medium"
+                                                                                                                                    ]
           },
-          "capacity": {
-            "target": 1,
-            "minimum": 1,
-            "maximum": 1
+          "availabilityZones": [
+            {
+              "name": "us-east-1a",
+              "subnetId": SUBNET_ID
+            }
+          ],
+          "launchSpecification": {
+            "monitoring": false,
+            "imageId": "ami-60b6c60a",
+            "keyPair": "kevinkey",
+            "securityGroupIds": [
+              SECURITY_GROUP_ID
+            ]
           },
-          "scaling": {},
-          "compute": {
-            "instanceTypes": {
-              "ondemand": "m3.medium",
-              "spot": [
-                "m3.medium"
-                                                                                                                                      ]
-            },
-            "availabilityZones": [
-              {
-                "name": "us-east-1a",
-                "subnetId": SUBNET_ID
-              }
-            ],
-            "launchSpecification": {
-              "monitoring": false,
-              "imageId": "ami-60b6c60a",
-              "keyPair": "kevinkey",
-              "securityGroupIds": [
-                SECURITY_GROUP_ID
-              ]
-            },
-            "product": "Linux/UNIX"
-          },
-          "scheduling": {},
-          "thirdPartiesIntegration": {}
-        }
+          "product": "Linux/UNIX"
+        },
+        "scheduling": {},
+        "thirdPartiesIntegration": {}
       }
     }
 
