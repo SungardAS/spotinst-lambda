@@ -115,3 +115,58 @@ ResourceType must be set to `elasticgroup`
       "resourceType": "elasticgroup",
       "groupId": ELASTICGROUP_ID
     }
+
+
+### CloudFormation
+
+    {
+      "AWSTemplateFormatVersion": "2010-09-09",
+      "Resources": {
+        "CFCR195GN": {
+          "Type": "Custom::elasticgroup",
+          "Properties": {
+            "ServiceToken":
+    "arn:aws:lambda:us-west-2:546276914724:function:spotinst-lambda",
+            "accessToken": TOKEN
+            "group": {
+              "name": "test",
+              "strategy": {
+                "risk": 100,
+                "availabilityVsCost": "balanced"
+              },
+              "capacity": {
+                "target": 1,
+                "minimum": 1,
+                "maximum": 1
+              },
+              "scaling": {},
+              "compute": {
+                "instanceTypes": {
+                  "ondemand": "m3.medium",
+                  "spot": [
+                    "m3.medium"
+                    ]
+                },
+                "availabilityZones": [
+                  {
+                    "name": "us-east-1a",
+                    "subnetId": SUBNET_ID
+                  }
+                ],
+                "launchSpecification": {
+                  "monitoring": false,
+                  "imageId": "ami-60b6c60a",
+                  "keyPair": "testkey",
+                  "securityGroupIds": [
+                    SECURITY_GROUP_ID
+                    ]
+                },
+                "product": "Linux/UNIX"
+              },
+              "scheduling": {},
+              "thirdPartiesIntegration": {}
+            }
+          }
+        }
+      }
+    }
