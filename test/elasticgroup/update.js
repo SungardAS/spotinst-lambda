@@ -1,4 +1,5 @@
-var assert = require('assert'),
+var _ = require('lodash'),
+  assert = require('assert'),
   update = require('../../lib/elasticgroup/update'),
   elasticgroup = require('../../lib/elasticgroup'),
   lambda = require('../../'),
@@ -70,11 +71,11 @@ describe("elasticgroup", function() {
       done: done
     };
 
-    update.handler({
+    update.handler(
+      _.merge({
         accessToken: ACCESSTOKEN,
-        groupConfig: groupConfig,
         groupId: 'sig-11111111'
-      },
+      },groupConfig),
       context
     );
   });
@@ -84,12 +85,12 @@ describe("elasticgroup", function() {
       done: done
     };
 
-    update.handler({
+    update.handler(
+      _.merge({
         requestType: 'update',
         accessToken: ACCESSTOKEN,
-        groupConfig: groupConfig,
         groupId: 'sig-11111111'
-      },
+      },groupConfig),
       context
     );
   });
@@ -99,13 +100,13 @@ describe("elasticgroup", function() {
       done: done
     };
 
-    update.handler({
+    update.handler(
+      _.merge({
         resourceType: 'elasticgroup',
         requestType: 'update',
         accessToken: ACCESSTOKEN,
-        groupConfig: groupConfig,
         groupId: 'sig-11111111'
-      },
+      },groupConfig),
       context
     );
   });

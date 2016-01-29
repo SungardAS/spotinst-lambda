@@ -1,4 +1,5 @@
-var assert = require('assert'),
+var _ = require('lodash'),
+  assert = require('assert'),
   create = require('../../lib/elasticgroup/create'),
   elasticgroup = require('../../lib/elasticgroup'),
   lambda = require('../../'),
@@ -48,7 +49,7 @@ var groupConfig = {
 
 describe("elasticgroup", function() {
   before(function() {
-    for (var i=0; i<3; i++) {
+    for (var i=0; i<4; i++) {
       nock('https://www.spotinst.com:8081', {"encodedQueryParams":true})
       .post('/aws/ec2/group', {"group":{"name":"test","strategy":{"risk":100,"onDemandCount":null,"availabilityVsCost":"balanced"},"capacity":{"target":1,"minimum":1,"maximum":1},"scaling":{},"compute":{"instanceTypes":{"ondemand":"m3.medium","spot":["m3.medium"]},"availabilityZones":[{"name":"us-east-1a","subnetId":"subnet-11111111"}],"launchSpecification":{"securityGroupIds":["sg-11111111"],"monitoring":false,"imageId":"ami-60b6c60a","keyPair":"testkey"},"product":"Linux/UNIX"},"scheduling":{},"thirdPartiesIntegration":{}}})
       .reply(200, {"request":{"id":"09c9bc9d-b234-4e06-bf2e-ec5f55033551","url":"/aws/ec2/group","method":"POST","timestamp":"2016-01-28T16:18:15.015Z"},"response":{"status":{"code":200,"message":"OK"},"kind":"spotinst:aws:ec2:group","items":[{"id":"sig-a307d690","name":"test","capacity":{"minimum":1,"maximum":1,"target":1},"strategy":{"risk":100,"availabilityVsCost":"balanced","drainingTimeout":0},"compute":{"instanceTypes":{"ondemand":"m3.medium","spot":["m3.medium"]},"availabilityZones":[{"name":"us-east-1a","subnetId":"subnet-11111111"}],"product":"Linux/UNIX","launchSpecification":{"securityGroupIds":["sg-11111111"],"monitoring":false,"imageId":"ami-60b6c60a","keyPair":"testkey"}},"scaling":{},"scheduling":{},"thirdPartiesIntegration":{},"createdAt":"2016-01-28T16:18:14.000+0000","updatedAt":"2016-01-28T16:18:14.000+0000"}],"count":1}}, { 'content-type': 'application/json; charset=utf-8',
@@ -67,10 +68,8 @@ describe("elasticgroup", function() {
       done: done
     };
 
-    create.handler({
-        accessToken: ACCESSTOKEN,
-        groupConfig: groupConfig
-      },
+    create.handler(
+      _.merge({accessToken: ACCESSTOKEN}, groupConfig),
       context
     );
   });
@@ -80,11 +79,11 @@ describe("elasticgroup", function() {
       done: done
     };
 
-    elasticgroup.handler({
+    elasticgroup.handler(
+      _.merge({
         requestType: 'Create',
-        accessToken: ACCESSTOKEN,
-        groupConfig: groupConfig
-      },
+        accessToken: ACCESSTOKEN
+      },groupConfig),
       context
     );
   });
@@ -94,11 +93,25 @@ describe("elasticgroup", function() {
       done: done
     };
 
-    lambda.handler({
+    lambda.handler(
+      _.merge({
         resourceType: 'elasticgroup',
         requestType: 'Create',
-        accessToken: ACCESSTOKEN,
-        groupConfig: groupConfig
+        accessToken: ACCESSTOKEN
+      }, groupConfig),
+      context
+    );
+  });
+
+  it("lambda handler should create a new group from CloudFormation", function(done) {
+    var context = {
+      done: done
+    };
+
+    lambda.handler({
+        ResourceType: 'elasticgroup',
+        RequestType: 'Create',
+        ResourceProperties: _.merge({accessToken: ACCESSTOKEN},groupConfig)
       },
       context
     );

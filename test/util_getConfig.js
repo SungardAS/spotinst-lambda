@@ -8,23 +8,21 @@ var groupConfig = {'group':{'name':'Test-Group','capacity':{'minimum':1,'maximum
 describe("util getConfig", function() {
 
 
-  it("should find groupConfig", function(cb) {
-    util.getConfig({groupConfig: groupConfig},function(err,config) {
+  it("should find groupConfig", function(done) {
+    util.getConfig(groupConfig,function(err,config) {
       assert.ifError(err);
-      assert.equal(config,groupConfig);
-      cb();
+      assert.deepEqual(config,groupConfig.group);
+      done();
     });
   });
 
-  it("should find groupConfig from CloudFormation", function(cb) {
+  it("should find groupConfig from CloudFormation", function(done) {
     util.getConfig({
-      ResourceProperties: {
-        groupConfig: groupConfig
-      }
+      ResourceProperties: groupConfig
     },function(err,config) {
       assert.ifError(err);
-      assert.equal(config,groupConfig);
-      cb();
+      assert.deepEqual(config,groupConfig.group);
+      done();
     });
   });
 

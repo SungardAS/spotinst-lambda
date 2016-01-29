@@ -1,4 +1,5 @@
-var assert = require('assert'),
+var _ = require('lodash'),
+  assert = require('assert'),
   nock = require('nock');
   util = require('../lib/util');
 
@@ -9,17 +10,17 @@ describe("util getTokenAndConfig", function() {
 
 
   it("should find the accessToken and groupConfig", function(cb) {
-    util.getTokenAndConfig({accessToken: 123456, groupConfig: groupConfig},function(err,res) {
+    util.getTokenAndConfig(_.merge({accessToken: 123456}, groupConfig),function(err,res) {
       assert.ifError(err);
-      assert.deepEqual(res,{token: 123456, config: groupConfig});
+      assert.deepEqual(res,{token: 123456, config: groupConfig.group});
       cb();
     });
   });
 
   it("should find the accessToken and groupConfig from CloudFormation", function(cb) {
-    util.getTokenAndConfig({ResourceProperties: {accessToken: 123456, groupConfig: groupConfig}},function(err,res) {
+    util.getTokenAndConfig({ResourceProperties: _.merge({accessToken: 123456}, groupConfig)},function(err,res) {
       assert.ifError(err);
-      assert.deepEqual(res,{token: 123456, config: groupConfig});
+      assert.deepEqual(res,{token: 123456, config: groupConfig.group});
       cb();
     });
   });
