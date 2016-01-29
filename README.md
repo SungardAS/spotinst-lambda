@@ -125,9 +125,8 @@ ResourceType must be set to `elasticgroup`
         "CFCR195GN": {
           "Type": "Custom::elasticgroup",
           "Properties": {
-            "ServiceToken":
-    "arn:aws:lambda:us-west-2:546276914724:function:spotinst-lambda",
-            "accessToken": TOKEN
+            "ServiceToken": SERVICE_TOKEN,
+            "accessToken": TOKEN,
             "group": {
               "name": "test",
               "strategy": {
