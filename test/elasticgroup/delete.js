@@ -87,10 +87,11 @@ describe("elasticgroup", function() {
     };
 
     deleteGroup.handler({
-      resourceType: 'Custom::elasticgroup',
-      requestType: 'delete',
-      accessToken: ACCESSTOKEN,
-      RequestType: "Create",
+      ResourceType: 'Custom::elasticgroup',
+      ResourceProperties: {
+        accessToken: ACCESSTOKEN,
+      },
+      RequestType: "Delete",
       RequestId: "unique id for this create request",
       ResponseURL: "https://fake.url",
       ResourceType: "Custom::MyCustomResourceType",
