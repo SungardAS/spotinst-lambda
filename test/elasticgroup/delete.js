@@ -74,6 +74,11 @@ describe("elasticgroup", function() {
   });
 
   it("lambda handler should delete with undefined groupId for CloudFormation", function(done) {
+
+    nock('https://fake.url')
+    .put('/', {"Status":"SUCCESS","Reason":"See the details in CloudWatch Log Stream: undefined","StackId":"arn:aws:cloudformation:us-east-1:namespace:stack/stack-name/guid","RequestId":"unique id for this create request","LogicalResourceId":"name of resource in template"})
+    .reply(200, {});
+
     var context = {
       done: function(err,obj) {
         assert.ifError(err);
@@ -82,15 +87,15 @@ describe("elasticgroup", function() {
     };
 
     deleteGroup.handler({
-      resourceType: 'elasticgroup',
+      resourceType: 'Custom::elasticgroup',
       requestType: 'delete',
       accessToken: ACCESSTOKEN,
-      "RequestType" : "Create",
-      "RequestId" : "unique id for this create request",
-      "ResponseURL" : "https://fake.url",
-      "ResourceType" : "Custom::MyCustomResourceType",
-      "LogicalResourceId" : "name of resource in template",
-      "StackId" : "arn:aws:cloudformation:us-east-1:namespace:stack/stack-name/guid"
+      RequestType: "Create",
+      RequestId: "unique id for this create request",
+      ResponseURL: "https://fake.url",
+      ResourceType: "Custom::MyCustomResourceType",
+      LogicalResourceId: "name of resource in template",
+      StackId: "arn:aws:cloudformation:us-east-1:namespace:stack/stack-name/guid"
     },
     context);
   });

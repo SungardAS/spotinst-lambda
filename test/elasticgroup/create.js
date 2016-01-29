@@ -109,7 +109,7 @@ describe("elasticgroup", function() {
     };
 
     lambda.handler({
-        ResourceType: 'elasticgroup',
+        ResourceType: 'Custom::elasticgroup',
         RequestType: 'Create',
         ResourceProperties: _.merge({accessToken: ACCESSTOKEN},groupConfig)
       },

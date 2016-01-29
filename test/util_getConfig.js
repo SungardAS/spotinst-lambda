@@ -26,4 +26,11 @@ describe("util getConfig", function() {
     });
   });
 
+  it("should fail if group config cannot be found", function(done) {
+    util.getConfig({},function(err,config) {
+      assert(err);
+      done();
+    });
+  });
+
 });
