@@ -52,7 +52,8 @@ In addition to one of the credential parameter groups:
 
 ## CloudFormation
 
-When called by CloudFormation [cfn-response](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-cfnresponsemodule)
+When called by CloudFormation
+[cfn-responder](https://github.com/SungardAS/cfn-responder)
 will be used to return the correct physicalResourceId to the stack.
 
 ResourceType must be set to `elasticgroup`
