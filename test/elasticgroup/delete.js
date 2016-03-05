@@ -1,6 +1,6 @@
 var assert = require('assert'),
-  deleteGroup = require('../../lib/elasticgroup/delete'),
-  elasticgroup = require('../../lib/elasticgroup'),
+  deleteGroup = require('../../lib/resources/elasticgroup/delete'),
+  elasticgroup = require('../../lib/resources/elasticgroup'),
   lambda = require('../../'),
   nock = require('nock');
 
