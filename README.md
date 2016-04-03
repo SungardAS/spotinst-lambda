@@ -26,7 +26,16 @@ Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https
 
 ### parameters
 
-#### Long Term Credentials
+#### Credentials
+
+Use either `User Credentials` parameters or `accessCode`.  If both are provided
+then `User Credentials` take precedence.
+
+While multiple forms of credentials are support it is highly recommended
+to use a [Personal Access
+Token](https://spotinst.atlassian.net/wiki/display/API/Get+API+Personal+Access+Token)
+
+##### User Credentials
 
 `username` - Spotinst Username
 
@@ -36,10 +45,11 @@ Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https
 
 `clientSecret` - Client Secret for Spotinst Account
 
-#### Temp Credentials
+##### Temp Credentials / Personal Access Token
 
 `accessCode` - Short term access code retrieved using Spotinst token
-service
+service or [Personal Access
+Token](https://spotinst.atlassian.net/wiki/display/API/Get+API+Personal+Access+Token)
 
 
 #### handler
