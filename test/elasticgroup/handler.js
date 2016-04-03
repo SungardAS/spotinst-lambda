@@ -1,27 +1,29 @@
 var assert = require('assert'),
-  lambda = require('../../lib/elasticgroup');
+  lambda = require('../../lib/resources/elasticgroup');
 
-describe('handler', function() {
-  it('should require requestType', function(done) {
-    var context = {
-      done: function(err,obj) {
-        assert(err);
-        done();
-      }
-    };
+describe('elasticgroup', function() {
+  describe('handler', function() {
+    it('should require requestType', function(done) {
+      var context = {
+        done: function(err,obj) {
+          assert(err);
+          done();
+        }
+      };
 
-    lambda.handler({}, context);
+      lambda.handler({}, context);
+    });
+
+    it('should verify requestType', function(done) {
+      var context = {
+        done: function(err,obj) {
+          assert(err);
+          done();
+        }
+      };
+
+      lambda.handler({requestType: 'badType'}, context);
+    });
+
   });
-
-  it('should verify requestType', function(done) {
-    var context = {
-      done: function(err,obj) {
-        assert(err);
-        done();
-      }
-    };
-
-    lambda.handler({requestType: 'badType'}, context);
-  });
-
 });

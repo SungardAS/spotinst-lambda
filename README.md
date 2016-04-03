@@ -1,6 +1,6 @@
 # spotinst-lambda
 
-AWS Lambda functions to Create, Update and Cancel [Spotinst](http://spotinst.com) resources
+A [lambda-formation](https://github.com/SungardAS/lambda-formation) project that will Create, Update and Cancel [Spotinst](http://spotinst.com) resources for AWS Lambda and CloudFormation.
 
 
 [![Build
@@ -51,9 +51,6 @@ In addition to one of the credential parameter groups:
 
 
 ## CloudFormation
-
-When called by CloudFormation [cfn-response](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-cfnresponsemodule)
-will be used to return the correct physicalResourceId to the stack.
 
 ResourceType must be set to `elasticgroup`
 
