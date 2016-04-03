@@ -12,6 +12,16 @@ Status](https://coveralls.io/repos/SungardAS/spotinst-lambda/badge.svg?branch=ma
 [![Dependency
 Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https://david-dm.org/SungardAS/spotinst-lambda?branch=master)
 
+## Quick Start
+
+    $ # Install only dependencies (no devDependencies)
+    $ npm --production install
+    $
+    $ # create the distribution
+    $ npm run dist
+    $
+    $ # Now upload dist/spotinst-lambda.zip to AWS Lambda, S3 or include in CloudFormation
+
 ## AWS Lambda
 
 ### parameters
@@ -166,3 +176,20 @@ ResourceType must be set to `elasticgroup`
         }
       }
     }
+
+## Major Changes
+
+### 0.1.0
+
+First release
+
+### 0.2.0
+
+Project is now based on
+[lambda-formation](https://github.com/SungardAS/lambda-formation).
+Resources now live in `lib/resources/` instead of `lib/`.
+
+New resources
+should be created wtih the lambda-formation
+[generator](https://github.com/SungardAS/generator-lambda-formation).
+
