@@ -1,7 +1,7 @@
 var _ = require('lodash'),
   assert = require('assert'),
-  update = require('../../lib/elasticgroup/update'),
-  elasticgroup = require('../../lib/elasticgroup'),
+  update = require('../../lib/resources/elasticgroup/update'),
+  elasticgroup = require('../../lib/resources/elasticgroup'),
   lambda = require('../../'),
   nock = require('nock');
 

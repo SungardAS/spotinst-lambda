@@ -1,6 +1,6 @@
 {
   "name": "spotinst-lambda",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "AWS Lambda scripts to interface with Spotinst",
   "main": "index.js",
   "scripts": {
@@ -19,10 +19,8 @@
     "nock": "^6.0.1"
   },
   "dependencies": {
-    "async": "^1.5.2",
-    "cfn-response": "SungardAS/cfn-response#develop",
-    "lodash": "^4.0.1",
-    "request": "^2.67.0",
-    "underscore.string": "^3.2.3"
+    "lambda-formation": "^0.1.1",
+    "lodash": "^4.6.1",
+    "request": "^2.67.0"
   }
 }
