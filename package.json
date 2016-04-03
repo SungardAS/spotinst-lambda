@@ -4,7 +4,8 @@
   "description": "AWS Lambda scripts to interface with Spotinst",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --recursive --timeout 7000"
+    "test": "./node_modules/.bin/mocha --recursive --timeout 7000",
+    "dist": "zip -FSr dist/spotinst-lambda.zip * -x \"*.git*\" \"dist/*\""
   },
   "author": {
     "name": "Kevin McGrath",
