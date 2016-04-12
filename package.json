@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "lambda-formation": "^0.1.1",
-    "lodash": "^4.6.1",
-    "request": "^2.67.0"
+    "lodash": "^4.10.0",
+    "request": "^2.71.0"
   }
 }

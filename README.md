@@ -31,7 +31,7 @@ Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https
 Use either `User Credentials` parameters or `accessCode`.  If both are provided
 then `User Credentials` take precedence.
 
-While multiple forms of credentials are support it is highly recommended
+While multiple forms of credentials are supported it is highly recommended
 to use a [Personal Access
 Token](https://spotinst.atlassian.net/wiki/display/API/Get+API+Personal+Access+Token)
 
