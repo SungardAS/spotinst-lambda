@@ -26,7 +26,16 @@ Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https
 
 ### parameters
 
-#### Long Term Credentials
+#### Credentials
+
+Use either `User Credentials` parameters or `accessCode`.  If both are provided
+then `User Credentials` take precedence.
+
+While multiple forms of credentials are supported it is highly recommended
+to use a [Personal Access
+Token](https://spotinst.atlassian.net/wiki/display/API/Get+API+Personal+Access+Token)
+
+##### User Credentials
 
 `username` - Spotinst Username
 
@@ -36,10 +45,11 @@ Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https
 
 `clientSecret` - Client Secret for Spotinst Account
 
-#### Temp Credentials
+##### Temp Credentials / Personal Access Token
 
 `accessCode` - Short term access code retrieved using Spotinst token
-service
+service or [Personal Access
+Token](https://spotinst.atlassian.net/wiki/display/API/Get+API+Personal+Access+Token)
 
 
 #### handler
@@ -49,20 +59,19 @@ index/handler
 
 In addition to one of the credential parameter groups:
 
-- resourceType *required* `string` - `elasticgroup` is the only valid
-  option at this time
+- resourceType *required* `string` - elasticgroup|subscription
 
 - requestType *required* `string` - create|update|delete
 
-- group `object` - Spotinst group definition. Required for create|update, not used for delete
+- group `object` - Spotinst group definition. Required for `elasticgroup` create|update, not used for delete
 
-- groupId `string` - required for update|delete
+- subscription `object` - Spotinst group definition. Required for `subscription` create|update, not used for delete
 
-
+- id `string` - required for update|delete
 
 ## CloudFormation
 
-ResourceType must be set to `elasticgroup`
+Set the resource `Type` to  `Custom::elasticgroup` or `Custom::subscription`
 
 
 ## Examples
@@ -91,7 +100,7 @@ ResourceType must be set to `elasticgroup`
             "ondemand": "m3.medium",
             "spot": [
               "m3.medium"
-                                                                                                                                    ]
+            ]
           },
           "availabilityZones": [
             {
@@ -120,7 +129,7 @@ ResourceType must be set to `elasticgroup`
       "accessToken": TOKEN
       "requestType": "delete",
       "resourceType": "elasticgroup",
-      "groupId": ELASTICGROUP_ID
+      "id": ELASTICGROUP_ID
     }
 
 
@@ -176,20 +185,3 @@ ResourceType must be set to `elasticgroup`
         }
       }
     }
-
-## Major Changes
-
-### 0.1.0
-
-First release
-
-### 0.2.0
-
-Project is now based on
-[lambda-formation](https://github.com/SungardAS/lambda-formation).
-Resources now live in `lib/resources/` instead of `lib/`.
-
-New resources
-should be created wtih the lambda-formation
-[generator](https://github.com/SungardAS/generator-lambda-formation).
-

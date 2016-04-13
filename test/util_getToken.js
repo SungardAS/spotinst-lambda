@@ -6,7 +6,7 @@ describe("util getToken", function() {
 
   before(function() {
 
-    nock('https://www.spotinst.com:9540', {"encodedQueryParams":true})
+    nock('https://oauth.spotinst.io', {"encodedQueryParams":true})
     .post('/token', "username=mock.username&password=mock.password&grant_type=password&client_id=mock.clientId&client_secret=mock.clientSecret")
     .reply(200, {"request":{"id":"963e071a-b62c-4a12-b4d9-0ca34cbe9320","url":"/token","method":"POST","timestamp":"2016-01-25T20:20:59.446Z"},"response":{"status":{"code":200,"message":"OK"},"kind":"spotinst:oauth2:token","items":[{"accessToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6MTEyLCJvaWQiOjYwNjA3OTg2MTgwMywiZXhwIjoxNDUzNzYwNDU5LCJpYXQiOjE0NTM3NTMyNTl9.T_pqS6nyywc0Fa6ydKfZ6zWl-3o7kU_aejJA7WbAGXw","tokenType":"bearer","expiresIn":7200},{"refreshToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6MTEyLCJvaWQiOjYwNjA3OTg2MTgwMywiZXhwIjoxNDU0OTYyODU5LCJpYXQiOjE0NTM3NTMyNTl9.kkhfR4Fr8p3bm10V5g7XwPn5hT3i_9EiLRUqW3gQo78","tokenType":"bearer","expiresIn":1209600}],"count":2}}, { 'cache-control': 'no-store',
            'content-type': 'application/json; charset=utf-8',
@@ -18,7 +18,7 @@ describe("util getToken", function() {
            'content-length': '901',
            connection: 'Close' });
 
-    nock('https://www.spotinst.com:9540', {"encodedQueryParams":true})
+    nock('https://oauth.spotinst.io', {"encodedQueryParams":true})
     .post('/token', "username=mock.username&password=mock.password&grant_type=password&client_id=mock.clientId&client_secret=mock.clientSecret")
     .reply(200, {"request":{"id":"963e071a-b62c-4a12-b4d9-0ca34cbe9320","url":"/token","method":"POST","timestamp":"2016-01-25T20:20:59.446Z"},"response":{"status":{"code":200,"message":"OK"},"kind":"spotinst:oauth2:token","items":[{"accessToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6MTEyLCJvaWQiOjYwNjA3OTg2MTgwMywiZXhwIjoxNDUzNzYwNDU5LCJpYXQiOjE0NTM3NTMyNTl9.T_pqS6nyywc0Fa6ydKfZ6zWl-3o7kU_aejJA7WbAGXw","tokenType":"bearer","expiresIn":7200},{"refreshToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6MTEyLCJvaWQiOjYwNjA3OTg2MTgwMywiZXhwIjoxNDU0OTYyODU5LCJpYXQiOjE0NTM3NTMyNTl9.kkhfR4Fr8p3bm10V5g7XwPn5hT3i_9EiLRUqW3gQo78","tokenType":"bearer","expiresIn":1209600}],"count":2}}, { 'cache-control': 'no-store',
            'content-type': 'application/json; charset=utf-8',
