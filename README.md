@@ -3,14 +3,9 @@
 A [lambda-formation](https://github.com/SungardAS/lambda-formation) project that will Create, Update and Cancel [Spotinst](http://spotinst.com) resources for AWS Lambda and CloudFormation.
 
 
-[![Build
-Status](https://travis-ci.org/SungardAS/spotinst-lambda.svg?branch=master)](https://travis-ci.org/SungardAS/spotinst-lambda?branch=master)
-[![Code
-Climate](https://codeclimate.com/github/SungardAS/spotinst-lambda/badges/gpa.svg?branch=master)](https://codeclimate.com/github/SungardAS/spotinst-lambda?branch=master)
-[![Coverage
-Status](https://coveralls.io/repos/SungardAS/spotinst-lambda/badge.svg?branch=master)](https://coveralls.io/r/SungardAS/spotinst-lambda?branch=master)
-[![Dependency
-Status](https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master)](https://david-dm.org/SungardAS/spotinst-lambda?branch=master)
+[![Build Status][travis-ci-image]][travis-ci-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+[![Dependency Status][david-dm-image]][david-dm-url]
 
 ## Quick Start
 
@@ -185,3 +180,13 @@ Set the resource `Type` to  `Custom::elasticgroup` or `Custom::subscription`
         }
       }
     }
+
+
+[code-climate-image]: https://codeclimate.com/github/SungardAS/spotinst-lambda/badges/gpa.svg?branch=master
+[code-climate-url]: https://codeclimate.com/github/SungardAS/spotinst-lambda?branch=master
+[travis-ci-image]: https://travis-ci.org/SungardAS/spotinst-lambda.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/SungardAS/spotinst-lambda?branch=master
+[coveralls-image]: https://coveralls.io/repos/SungardAS/spotinst-lambda/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/r/SungardAS/spotinst-lambda?branch=master
+[david-dm-image]: https://david-dm.org/SungardAS/spotinst-lambda.svg?branch=master
+[david-dm-url]: https://david-dm.org/SungardAS/spotinst-lambda?branch=master
