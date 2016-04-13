@@ -7,7 +7,7 @@ var _ = require('lodash'),
 
 var subscriptionConfig = {
   "subscription": {
-    "resourceId": "sig-11111111",
+    "resourceId": "sis-11111111",
     "protocol": "http",
     "endpoint": "http://fakeurl.io",
     "eventType": "AWS_EC2_INSTANCE_TERMINATE"
@@ -20,8 +20,8 @@ describe("subscription", function() {
     before(function() {
       for (var i=0; i<3; i++) {
         nock('https://api.spotinst.io', {"encodedQueryParams":true})
-        .put('/events/subscription/sig-11111111', {"subscription":{"resourceId":"sig-11111111","protocol":"http","endpoint":"http://fakeurl.io","eventType":"AWS_EC2_INSTANCE_TERMINATE"}})
-        .reply(200, {"request":{"id":"303a56bf-bc74-4b7d-9758-e411d7b15080","url":"/events/subscription/sig-11111111","method":"PUT","timestamp":"2016-04-12T18:16:53.840Z"},"response":{"status":{"code":200,"message":"OK"},"affectedRows":0}}, { 'access-control-allow-headers': 'Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token',
+        .put('/events/subscription/sis-11111111', {"subscription":{"resourceId":"sis-11111111","protocol":"http","endpoint":"http://fakeurl.io","eventType":"AWS_EC2_INSTANCE_TERMINATE"}})
+        .reply(200, {"request":{"id":"303a56bf-bc74-4b7d-9758-e411d7b15080","url":"/events/subscription/sis-11111111","method":"PUT","timestamp":"2016-04-12T18:16:53.840Z"},"response":{"status":{"code":200,"message":"OK"},"affectedRows":0}}, { 'access-control-allow-headers': 'Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token',
                'access-control-allow-methods': 'GET,POST,DELETE,PUT',
                'access-control-allow-origin': '*',
                'content-type': 'application/json; charset=utf-8',
@@ -43,7 +43,7 @@ describe("subscription", function() {
 
       update.handler(
         _.merge({
-          id: 'sig-11111111',
+          id: 'sis-11111111',
           accessToken: ACCESSTOKEN
         },subscriptionConfig),
         context
@@ -57,7 +57,7 @@ describe("subscription", function() {
 
       update.handler(
         _.merge({
-          id: 'sig-11111111',
+          id: 'sis-11111111',
           requestType: 'update',
           accessToken: ACCESSTOKEN
         },subscriptionConfig),
@@ -72,7 +72,7 @@ describe("subscription", function() {
 
       update.handler(
         _.merge({
-          id: 'sig-11111111',
+          id: 'sis-11111111',
           resourceType: 'subscription',
           requestType: 'update',
           accessToken: ACCESSTOKEN
