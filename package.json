@@ -1,6 +1,9 @@
 {
   "name": "spotinst-lambda",
-  "version": "0.3.0",
+  "version": "0.3.1",
+  "publishConfig": {
+    "tag": "latest"
+  },
   "description": "AWS Lambda scripts to interface with Spotinst",
   "main": "index.js",
   "scripts": {
@@ -20,6 +23,7 @@
     "nock": "^8.0.0"
   },
   "dependencies": {
+    "deep-diff": "^0.3.4",
     "lambda-formation": "^0.1.5",
     "lodash": "^4.10.0",
     "request": "^2.71.0"
