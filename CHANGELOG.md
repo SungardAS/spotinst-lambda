@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.1] - 2016-08-06
+### Changed
+- For any `UPDATE` action initiated by CloudFormation the old config
+  will be compared with the new config.  If keys have been removed they
+  will be set as `null` to Spotinst. This ensures the CF and Spotinst
+  declarations are exactly the same.
+
 ## [0.3.0] - 2016-04-12
 ### Added
 - `subscription` resource - add, update and delete Spotinst Notification
