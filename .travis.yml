@@ -1,7 +1,18 @@
 language: node_js
 node_js:
-  - stable
-  - "4"
-  - "0.12"
-after_script: NODE_ENV=test ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec --timeout 15000 --recursive test/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
-
+- stable
+- '4'
+- '4.3'
+- '0.12'
+after_script: NODE_ENV=test ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha
+  --report lcovonly -- -R spec --timeout 15000 --recursive test/ && cat ./coverage/lcov.info
+  | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+deploy:
+  provider: npm
+  email: as.us.labs@sungardas.com
+  api_key:
+    secure: d7qE6qVElpi0dgL19k/tNjlMTQxjWvO7QcFULTDpMJVY608fNlF95TGTQsEPpL78h84a1BOjvIG+x+2BtOhYPa7ax2RIjWWTDwLzinXvzrYqel78JvIOqo/1LpRO9gl9bD8BS+4Vd5H+OULDKnLIT4FOWR5R2mpk8AMqSTGn1XZOiAP+d/eAfNn4ZJRPAdpabYo29EskXJ9IdXpKs/EnoBIhuzGUgorP0AsJYBLBAdnM1I0jOVybycRgDIIIB+UAYhJnhKf3zRX1pmP7UgHVM5/y4MjNKxhIX+Kthchz+RxTLY8z7MqZtjuopj7KTUXJRxuudpRxcihbXaoSazKBsFXrHKRsMRceDOFCvTE3j8wVfYUp799W/k2mBRAr5Sd21TorVnrS+hgv+ecpEo7JbrSmZXquwU2d305lJa812mzPFj8r4FDNLkGKDIWyoyTPOKLQBgqGETXRy7vaOWyD23aEUNZocB6BPeiqzFWAHHW7j0/xzFp0f5QIY+8kEZMdVfeyGRR/8KCA+pEeZ8wkqzcEYDQCiQaZVGMcCPdfJVIdWkC4A/gVMqDUm5nA4mg4EyIZr6sPWrn/emQABUwqlewzan6sV01HcLyygulW7tQ5qKN1LMGPw6PHqtZByJJC4wfuIbjw9Zj5M/QX0Zq53ebUhMaR87dC3YKkYm3GQfI=
+  on:
+    tags: true
+    repo: SungardAS/spotinst-lambda
+    node: 4.3
