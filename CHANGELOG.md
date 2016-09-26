@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.2] - 2016-09-25
+### Added
+- Ability to use `elastigroup` resource. This is will eventually
+  replace `elasticgroup` which was a misspelling in the original
+version.
+
 ## [0.3.1] - 2016-08-06
 ### Changed
 - For any `UPDATE` action initiated by CloudFormation the old config
