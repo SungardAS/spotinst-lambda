@@ -48,13 +48,6 @@ var groupConfig = {
   }
 };
 
-var updatePolicyConfig = {
-  rollConfig: {
-    batchSizePercentage: 50,
-    gracePeriod:         600
-  }
-};
-
 groupConfig.group.description = Date.now() / 1000 + "";
 
 describe("elasticgroup", function() {
@@ -249,6 +242,14 @@ describe("elasticgroup", function() {
         done: done
       };
 
+      var updatePolicyConfig = {
+        shouldRoll: true,
+        rollConfig: {
+          batchSizePercentage: 50,
+          gracePeriod:         600
+        }
+      };
+
       update.handler(
         _.merge({
           accessToken:  ACCESSTOKEN,
@@ -258,5 +259,29 @@ describe("elasticgroup", function() {
         context
       );
     });
+
+    it("update handler should update an existing group and not perform roll", function(done) {
+      var context = {
+        done: done
+      };
+
+      var updatePolicyConfig = {
+        shouldRoll: false,
+        rollConfig: {
+          batchSizePercentage: 50,
+          gracePeriod:         600
+        }
+      };
+
+      update.handler(
+        _.merge({
+          accessToken:  ACCESSTOKEN,
+          id:           'sig-11111111',
+          updatePolicy: updatePolicyConfig
+        }, groupConfig),
+        context
+      );
+    });
+
   });
 });
