@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.0] - 2016-10-11
+### Added
+- 'elastigroup' update - now support updatePolicy to perform group roll.
+
+### Changed
+- 'elastigroup' delete - if the group doesn't exist, mark the delete as
+   successful
+
 ## [0.3.0] - 2016-04-12
 ### Added
 - `subscription` resource - add, update and delete Spotinst Notification
