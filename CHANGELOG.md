@@ -2,11 +2,18 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.0] - 2016-10-11
+### Added
+- 'elastigroup' update - now support updatePolicy to perform group roll.
+
+### Changed
+- 'elastigroup' delete - if the group doesn't exist, mark the delete as
+   successful
+
 ## [0.3.2] - 2016-09-25
 ### Added
 - Ability to use `elastigroup` resource. This is will eventually
-  replace `elasticgroup` which was a misspelling in the original
-version.
+  replace `elasticgroup` which was a misspelling in the original version.
 
 ## [0.3.1] - 2016-08-06
 ### Changed
@@ -14,6 +21,8 @@ version.
   will be compared with the new config.  If keys have been removed they
   will be set as `null` to Spotinst. This ensures the CF and Spotinst
   declarations are exactly the same.
+=======
+>>>>>>> 172eb0a1d6a7cd18f7d9851c4ddd89ece6ef6c26
 
 ## [0.3.0] - 2016-04-12
 ### Added
