@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.1] - 2016-12-14
+### Added
+- logging levels with **loglevel** - set with environment
+- set restUrl and oauthUrl with the environment
+
 ## [0.4.0] - 2016-10-11
 ### Added
 - 'elastigroup' update - now support updatePolicy to perform group roll.
@@ -21,8 +26,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   will be compared with the new config.  If keys have been removed they
   will be set as `null` to Spotinst. This ensures the CF and Spotinst
   declarations are exactly the same.
-=======
->>>>>>> 172eb0a1d6a7cd18f7d9851c4ddd89ece6ef6c26
 
 ## [0.3.0] - 2016-04-12
 ### Added
