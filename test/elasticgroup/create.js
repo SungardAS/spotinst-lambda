@@ -48,7 +48,7 @@ var groupConfig = {
 }
 
 describe("elasticgroup", function() {
-  describe.only("create resource", function() {
+  describe("create resource", function() {
     before(function() {
       for (var i=0; i<4; i++) {
         nock('https://api.spotinst.io', {"encodedQueryParams":true})
