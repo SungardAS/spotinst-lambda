@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.2] - 2016-12-16
+### Changed
+- replaced loglevel with winston logs
+
 ## [0.4.1] - 2016-12-14
 ### Added
 - logging levels with **loglevel** - set with environment
