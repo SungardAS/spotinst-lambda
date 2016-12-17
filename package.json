@@ -1,13 +1,13 @@
 {
   "name": "spotinst-lambda",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "publishConfig": {
     "tag": "latest"
   },
   "description": "AWS Lambda scripts to interface with Spotinst",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --recursive --timeout 7000",
+    "test": "spotinst_lambda_logLevel=silent ./node_modules/.bin/mocha --recursive --timeout 7000",
     "dist": "zip -FSr dist/spotinst-lambda.zip * -x \"*.git*\" \"dist/*\""
   },
   "author": {
@@ -28,6 +28,7 @@
     "lodash": "^4.17.2",
     "loglevel": "^1.4.1",
     "rc": "^1.1.6",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "winston": "^2.3.0"
   }
 }
