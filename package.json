@@ -26,7 +26,6 @@
     "deep-diff": "^0.3.4",
     "lambda-formation": "^0.1.8",
     "lodash": "^4.17.2",
-    "loglevel": "^1.4.1",
     "rc": "^1.1.6",
     "request": "^2.79.0",
     "winston": "^2.3.0"
