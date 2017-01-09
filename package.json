@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "deep-diff": "^0.3.4",
-    "lambda-formation": "^0.1.8",
+    "lambda-formation": "^0.1.9",
     "lodash": "^4.17.2",
     "rc": "^1.1.6",
     "request": "^2.79.0",
